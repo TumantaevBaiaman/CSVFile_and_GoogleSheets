@@ -21,6 +21,7 @@ file_csv = ['dlg_id', 'line_n', 'role', 'text', 'insight']
 t = []
 
 for i in range(len(data)):
+    print("-------------------------------")
     for n in data[str(i)]:
         list = []
         list.append(i)
@@ -37,9 +38,6 @@ for i in range(len(data)):
             list.append('False')
 
         t.append(list)
-        
-        text_data = n['text'].lower()
-        doc = nlp(text_data)
         
         if (text_data.find(list_h[0])!=-1 and n['role'] == "manager") or (text_data.find(list_h[3])!=-1 and n['role'] == "manager"):
             hello = text_data
@@ -77,15 +75,11 @@ for i in range(len(data)):
         print("Компания: ", company.title())
     if b:
         print(b)
-    print("-------------------------")
-        
-
+    print()
 
 
 with open('test_data.csv', 'w', encoding='UTF8') as file:
 
    writer = csv.writer(file)
    writer.writerow(file_csv)
-
-   for i in t:
-      writer.writerow(i)
+   writer.writerows(t)
