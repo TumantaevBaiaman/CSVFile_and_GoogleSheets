@@ -16,4 +16,5 @@ def test():
         list[i['dlg_id']].append({'line_n': i['line_n'], 'role': i['role'], 'text': i['text']})
     return list
 
-print(test())
+
+
